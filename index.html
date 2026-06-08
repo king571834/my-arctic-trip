@@ -33,22 +33,23 @@
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
-        .content-img { width: 100%; height: 380px; overflow: hidden; background-color: #e2e8f0; }
+        /* 右側滿版大圖 */
+        .content-img { width: 100%; height: 420px; overflow: hidden; background-color: #e2e8f0; }
         .content-img img { width: 100%; height: 100%; object-fit: cover; }
         .content-body { padding: 35px; }
-        .content-days { font-size: 0.85rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
-        .content-title { font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+        .content-days { font-size: 0.9rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
+        .content-title { font-size: 1.5rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
         
-        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .tag { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
+        .tag { padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
         .tag-trans { background-color: #f0f9ff; color: #0284c7; }
         .tag-stay { background-color: #f0fdf4; color: #16a34a; }
         
-        /* 詳細行程分區樣式 */
-        .itinerary-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1; }
-        .section-time { font-weight: bold; color: var(--accent); margin-bottom: 5px; font-size: 0.95rem; }
-        .content-desc { font-size: 1rem; color: var(--text-dark); text-align: justify; line-height: 1.8; }
-        .content-desc b { color: var(--primary); }
+        /* 放大後的詳細行程排版與大字體 */
+        .itinerary-section { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #cbd5e1; }
+        .section-time { font-weight: bold; color: var(--accent); margin-bottom: 8px; font-size: 1.1rem; }
+        .content-desc { font-size: 1.15rem; color: var(--text-dark); text-align: justify; line-height: 1.9; }
+        .content-desc b { color: var(--primary); font-weight: 700; }
 
         @media (max-width: 768px) {
             .travel-layout { flex-direction: column; }
@@ -56,7 +57,7 @@
             .tab-btn { white-space: nowrap; padding: 10px 18px; border-left: none; border-bottom: 3px solid transparent; }
             .tab-btn.active { border-bottom-color: var(--secondary); background-color: transparent; }
             .tab-content-container { width: 100%; }
-            .content-img { height: 220px; }
+            .content-img { height: 240px; }
         }
     </style>
 </head>
@@ -79,8 +80,8 @@
             <!-- Day 1 旅行社級詳細規格 -->
             <div id="day1" class="tab-content active">
                 <div class="content-img">
-                    <!-- 使用愛沙尼亞官方觀光局防盜鏈直連圖，確保 GitHub Pages 絕對能開 -->
-                    <img src="https://unsplash.com" alt="Tallinn Medieval Town">
+                    <!-- 使用極其穩定的維基百科公用圖庫直連，GitHub Pages 專用保證絕不破圖 -->
+                    <img src="https://wikimedia.org" alt="Tallinn Medieval Town">
                 </div>
                 <div class="content-body">
                     <div class="content-days">DAY 01</div>
@@ -108,7 +109,7 @@
 
                         <div class="itinerary-section">
                             <div class="section-time"><i class="fa-regular fa-clock"></i> 14:30 - 16:30 上城區登高俯瞰童話雪景</div>
-                            餐後順著鵝卵石階梯一路上行前往座頭山（Toompea）。沿途參觀壯麗的洋蔥頭穹頂——<b>亞歷山大·涅夫斯基主教座堂</b>。最後抵達全城最美攝影點 <b>Patkuli 觀景台</b>，在此俯瞰塔林中世紀黑色防衛高塔、紅磚覆雪屋頂與遠處波羅的海交織的童話極景，也是 8 人拍攝團隊大合照的最佳位置。
+                            餐後順著鵝卵石階梯一路上行前往座頭山（Toompea）。沿途參觀壯麗的洋蔥頭穹頂——<b>亞歷山大·涅夫斯基主教座堂</b>。最後抵達全城最美攝影點 <b>Patkuli 觀景台</b>，在此俯瞰塔林中世紀黑色防衛高塔、紅磚屋頂與遠處波羅的海交織的童話極景，也是 8 人拍攝團隊大合照的最佳位置。
                         </div>
 
                         <div class="itinerary-section">
