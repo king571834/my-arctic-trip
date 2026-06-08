@@ -17,169 +17,100 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
         
-        /* 首頁大圖 Banner */
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://unsplash.com') center/cover no-repeat fixed; height: 35vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 2px; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; }
+        /* 頂部旅行社級橫幅 */
+        .hero { background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://unsplash.com') center/cover no-repeat; height: 20vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+        .hero p { font-size: 0.95rem; opacity: 0.85; margin-top: 5px; }
+
+        /* 頁籤切換佈局 */
+        .travel-layout { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: flex; gap: 25px; }
         
-        .container { max-width: 800px; margin: -30px auto 60px; padding: 0 20px; }
+        /* 左側天數選單 */
+        .tab-menu { width: 28%; display: flex; flex-direction: column; gap: 8px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); height: fit-content; }
+        .tab-btn { background: none; border: none; padding: 12px 15px; text-align: left; font-size: 0.95rem; font-weight: bold; color: var(--text-dark); border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px; border-left: 4px solid transparent; }
+        .tab-btn:hover { background-color: #f1f5f9; color: var(--secondary); }
+        .tab-btn.active { background-color: #e0f2fe; color: var(--secondary); border-left-color: var(--secondary); }
         
-        /* 行程基本資訊 */
-        .overview { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 35px; border-bottom: 4px solid var(--secondary); }
-        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-        .info-item { display: flex; align-items: center; gap: 15px; }
-        .info-item i { font-size: 1.8rem; color: var(--secondary); }
-        .info-item div p:first-child { font-size: 0.8rem; color: var(--text-muted); font-weight: bold; }
-        .info-item div p:last-child { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+        /* 右側行程顯示區 */
+        .tab-content-container { width: 72%; }
+        .tab-content { display: none; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
-        .section-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        /* 右側詳細圖文 */
+        .content-img { width: 100%; height: 380px; overflow: hidden; background-color: #e2e8f0; }
+        .content-img img { width: 100%; height: 100%; object-fit: cover; }
+        .content-body { padding: 35px; }
+        .content-days { font-size: 0.85rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
+        .content-title { font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
         
-        /* 簡潔版天數列表 */
-        .day-list { display: flex; flex-direction: column; gap: 15px; }
-        .compact-card { background: white; border-radius: 12px; padding: 20px 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s ease; border-left: 5px solid var(--secondary); }
-        .compact-card:hover { transform: translateX(5px); box-shadow: 0 6px 15px rgba(0,0,0,0.06); background-color: #fafafa; }
-        .card-left { display: flex; align-items: center; gap: 20px; }
-        .card-num { font-size: 1.1rem; font-weight: 900; color: var(--secondary); min-width: 70px; letter-spacing: 1px; }
-        .card-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
-        
-        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-        .tag { padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+        /* 標籤樣式 */
+        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
         .tag-trans { background-color: #f0f9ff; color: #0284c7; }
         .tag-stay { background-color: #f0fdf4; color: #16a34a; }
-        .tag-spot { background-color: #fff7ed; color: #ea580c; }
-        
-        /* 互動彈窗樣式 (Modal) */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(5px); justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background-color: white; border-radius: 16px; width: 100%; max-width: 650px; max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); position: relative; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .close-btn { position: absolute; top: 15px; right: 20px; color: white; font-size: 30px; font-weight: bold; cursor: pointer; z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .close-btn:hover { color: #cbd5e1; }
-        
-        /* 彈窗內圖片 */
-        .modal-banner { width: 100%; height: 260px; overflow: hidden; position: relative; }
-        .modal-banner img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .modal-body { padding: 30px; }
-        .modal-day-num { font-size: 0.9rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
-        .modal-title { font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; }
-        .modal-desc { font-size: 1rem; color: var(--text-dark); text-align: justify; line-height: 1.7; border-top: 1px solid #e2e8f0; padding-top: 15px; }
-        
-        footer { background: var(--primary); color: white; text-align: center; padding: 25px; font-size: 0.85rem; margin-top: 60px; }
+        .content-desc { font-size: 1rem; color: var(--text-dark); text-align: justify; line-height: 1.8; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+
+        /* 行動裝置自動適應 */
+        @media (max-width: 768px) {
+            .travel-layout { flex-direction: column; }
+            .tab-menu { width: 100%; flex-direction: row; overflow-x: auto; padding: 10px; }
+            .tab-btn { white-space: nowrap; padding: 10px 18px; border-left: none; border-bottom: 3px solid transparent; }
+            .tab-btn.active { border-bottom-color: var(--secondary); background-color: transparent; }
+            .tab-content-container { width: 100%; }
+            .content-img { height: 220px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- 頂部橫幅 -->
     <div class="hero">
         <h1>北極光之約</h1>
-        <p>芬蘭、挪威 14 天跨國夢幻極光與海島探索之旅 (8人客製精簡互動版)</p>
+        <p>芬蘭、挪威 14 天跨國夢幻極光與海島探索之旅</p>
     </div>
 
-    <div class="container">
-        <!-- 簡介卡片 -->
-        <div class="overview">
-            <div class="grid-info">
-                <div class="info-item"><i class="fa-solid fa-calendar-days"></i><div><p>旅行天數</p><p>14 天 13 夜</p></div></div>
-                <div class="info-item"><i class="fa-solid fa-users"></i><div><p>團隊人數</p><p>8 位成人</p></div></div>
-                <div class="info-item"><i class="fa-solid fa-route"></i><div><p>使用說明</p><p>點擊下方日子看詳細圖文</p></div></div>
-            </div>
+    <div class="travel-layout">
+        <!-- 左側切換選單（徹底純淨，只保留 Day 1） -->
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="switchTab(event, 'day1')"><i class="fa-solid fa-calendar-day"></i> DAY 01</button>
         </div>
 
-        <div class="section-title"><i class="fa-solid fa-bars-staggered"></i> 每日行程總覽</div>
-
-        <!-- 每日列表：首頁只放標題與標籤 -->
-        <div class="day-list">
+        <!-- 右側內容顯示區 -->
+        <div class="tab-content-container">
             
-            <!-- Day 1 (可點擊) -->
-            <div class="compact-card" onclick="openModal('modal-d1')">
-                <div class="card-left">
-                    <div class="card-num">DAY 01</div>
-                    <div>
-                        <div class="card-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
-                        <div class="meta-tags">
-                            <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船</span>
-                            <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
-                        </div>
-                    </div>
+            <!-- Day 1 唯一展示區塊 -->
+            <div id="day1" class="tab-content active">
+                <div class="content-img">
+                    <!-- 改用 Unsplash 官方最穩定的愛沙尼亞塔林雪景直連圖 -->
+                    <img src="https://unsplash.com" alt="Tallinn Snow View">
                 </div>
-                <i class="fa-solid fa-chevron-right" style="color: var(--text-muted)"></i>
-            </div>
-
-            <!-- 預留未來天數的佔位骨架（目前點擊無反應，等您確認完再補齊功能） -->
-            <div class="compact-card" style="opacity: 0.6; cursor: default;">
-                <div class="card-left">
-                    <div class="card-num">DAY 02</div>
-                    <div>
-                        <div class="card-title">赫爾辛基市區巡禮 ➔ 夜宿 VR 北極特快車卧鋪</div>
-                        <div class="meta-tags"><span class="tag tag-trans">VR 臥鋪火車</span></div>
+                <div class="content-body">
+                    <div class="content-days">DAY 01</div>
+                    <div class="content-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
+                    <div class="meta-tags">
+                        <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船</span>
+                        <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
                     </div>
+                    <p class="content-desc">
+                        班機於早晨順利抵達芬蘭首都赫爾辛基中央車站，我們將大件行李寄存妥當後，8人團隊輕裝前往碼頭，搭乘雙體快船跨越波羅的海，直奔愛沙尼亞的「塔林古城」。<br><br>
+                        漫步在保存最完整的中世紀童話鵝卵石街道上，走訪亞歷山大·涅夫斯基主教座堂。接著登上著名的 Patkuli 觀景台，俯瞰被白雪覆蓋的紅磚屋頂與古老城牆，拍下明信片般的震撼美景。傍晚帶著浪漫的歐風回憶，搭船返回赫爾辛基中央車站旁入住精品飯店。
+                    </p>
                 </div>
-                <i class="fa-solid fa-lock" style="color: var(--text-muted); font-size: 0.85rem;"></i>
-            </div>
-
-            <div class="compact-card" style="opacity: 0.6; cursor: default;">
-                <div class="card-left">
-                    <div class="card-num">DAY 03</div>
-                    <div>
-                        <div class="card-title">羅瓦涅米：聖誕老人村跨越極圈 ➔ 全球最北麥當勞</div>
-                        <div class="meta-tags"><span class="tag tag-stay">河畔包棟別墅</span></div>
-                    </div>
-                </div>
-                <i class="fa-solid fa-lock" style="color: var(--text-muted); font-size: 0.85rem;"></i>
             </div>
 
         </div>
     </div>
 
-    <!-- ==================== 互動彈窗區 (Modal) ==================== -->
-    
-    <!-- Day 1 詳細行程彈窗 -->
-    <div id="modal-d1" class="modal" onclick="closeModalOnOutside(event, 'modal-d1')">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-d1')">&times;</span>
-            <div class="modal-banner">
-                <!-- 穩定 CDN 真實高畫質塔林古城雪景圖 -->
-                <img src="https://unsplash.com" alt="Tallinn Old Town">
-            </div>
-            <div class="modal-body">
-                <div class="modal-day-num">DAY 01</div>
-                <div class="modal-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
-                <div class="meta-tags" style="margin-bottom: 20px;">
-                    <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船</span>
-                    <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
-                </div>
-                <p class="modal-desc">
-                    班機於早晨順利抵達芬蘭首都赫爾辛基中央車站，我們將大件行李寄存妥當後，8人團隊輕裝前往碼頭，搭乘雙體快船跨越波羅的海，直奔愛沙尼亞的「塔林古城」。<br><br>
-                    漫步在保存最完整的中世紀童話鵝卵石街道上，走訪亞歷山大·涅夫斯基主教座堂。接著登上著名的 Patkuli 觀景台，俯瞰被白雪覆蓋的紅磚屋頂與古老城牆，拍下明信片般的震撼美景。傍晚帶著浪漫的歐風回憶，搭船返回赫爾辛基中央車站旁入住精品飯店。
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 北極光之約 14天尊享航程 8人團隊專屬手冊.</p>
-    </footer>
-
-    <!-- 互動控制 JavaScript -->
     <script>
-        // 開啟彈窗
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // 防止底層網頁跟著滾動
-        }
-
-        // 關閉彈窗
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢復網頁滾動
-        }
-
-        // 點擊彈窗外白色區域也能自動關閉
-        function closeModalOnOutside(event, id) {
-            if (event.target === document.getElementById(id)) {
-                closeModal(id);
-            }
+        function switchTab(event, dayId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(dayId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
     </script>
 </body>
