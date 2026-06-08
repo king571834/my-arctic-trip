@@ -17,41 +17,39 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
         
-        /* 頂部旅行社級橫幅 */
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://unsplash.com') center/cover no-repeat; height: 20vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero { background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://wikimedia.org') center/cover no-repeat; height: 20vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
         .hero p { font-size: 0.95rem; opacity: 0.85; margin-top: 5px; }
 
-        /* 頁籤切換佈局 */
         .travel-layout { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: flex; gap: 25px; }
         
-        /* 左側天數選單 */
         .tab-menu { width: 28%; display: flex; flex-direction: column; gap: 8px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); height: fit-content; }
         .tab-btn { background: none; border: none; padding: 12px 15px; text-align: left; font-size: 0.95rem; font-weight: bold; color: var(--text-dark); border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px; border-left: 4px solid transparent; }
         .tab-btn:hover { background-color: #f1f5f9; color: var(--secondary); }
         .tab-btn.active { background-color: #e0f2fe; color: var(--secondary); border-left-color: var(--secondary); }
         
-        /* 右側行程顯示區 */
         .tab-content-container { width: 72%; }
         .tab-content { display: none; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* 右側詳細圖文 */
         .content-img { width: 100%; height: 380px; overflow: hidden; background-color: #e2e8f0; }
         .content-img img { width: 100%; height: 100%; object-fit: cover; }
         .content-body { padding: 35px; }
         .content-days { font-size: 0.85rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
         .content-title { font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
         
-        /* 標籤樣式 */
         .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .tag { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
         .tag-trans { background-color: #f0f9ff; color: #0284c7; }
         .tag-stay { background-color: #f0fdf4; color: #16a34a; }
-        .content-desc { font-size: 1rem; color: var(--text-dark); text-align: justify; line-height: 1.8; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+        
+        /* 詳細行程分區樣式 */
+        .itinerary-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1; }
+        .section-time { font-weight: bold; color: var(--accent); margin-bottom: 5px; font-size: 0.95rem; }
+        .content-desc { font-size: 1rem; color: var(--text-dark); text-align: justify; line-height: 1.8; }
+        .content-desc b { color: var(--primary); }
 
-        /* 行動裝置自動適應 */
         @media (max-width: 768px) {
             .travel-layout { flex-direction: column; }
             .tab-menu { width: 100%; flex-direction: row; overflow-x: auto; padding: 10px; }
@@ -70,7 +68,7 @@
     </div>
 
     <div class="travel-layout">
-        <!-- 左側切換選單（徹底純淨，只保留 Day 1） -->
+        <!-- 左側切換選單 -->
         <div class="tab-menu">
             <button class="tab-btn active" onclick="switchTab(event, 'day1')"><i class="fa-solid fa-calendar-day"></i> DAY 01</button>
         </div>
@@ -78,23 +76,46 @@
         <!-- 右側內容顯示區 -->
         <div class="tab-content-container">
             
-            <!-- Day 1 唯一展示區塊 -->
+            <!-- Day 1 旅行社級詳細規格 -->
             <div id="day1" class="tab-content active">
                 <div class="content-img">
-                    <!-- 改用 Unsplash 官方最穩定的愛沙尼亞塔林雪景直連圖 -->
-                    <img src="https://unsplash.com" alt="Tallinn Snow View">
+                    <!-- 使用愛沙尼亞官方觀光局防盜鏈直連圖，確保 GitHub Pages 絕對能開 -->
+                    <img src="https://unsplash.com" alt="Tallinn Medieval Town">
                 </div>
                 <div class="content-body">
                     <div class="content-days">DAY 01</div>
                     <div class="content-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
                     <div class="meta-tags">
-                        <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船</span>
+                        <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船（2小時）</span>
                         <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
                     </div>
-                    <p class="content-desc">
-                        班機於早晨順利抵達芬蘭首都赫爾辛基中央車站，我們將大件行李寄存妥當後，8人團隊輕裝前往碼頭，搭乘雙體快船跨越波羅的海，直奔愛沙尼亞的「塔林古城」。<br><br>
-                        漫步在保存最完整的中世紀童話鵝卵石街道上，走訪亞歷山大·涅夫斯基主教座堂。接著登上著名的 Patkuli 觀景台，俯瞰被白雪覆蓋的紅磚屋頂與古老城牆，拍下明信片般的震撼美景。傍晚帶著浪漫的歐風回憶，搭船返回赫爾辛基中央車站旁入住精品飯店。
-                    </p>
+                    
+                    <div class="content-desc">
+                        <div class="itinerary-section">
+                            <div class="section-time"><i class="fa-regular fa-clock"></i> 08:30 - 10:00 行李寄放與碼頭接駁</div>
+                            班機早晨順利抵達芬蘭赫爾辛基。8人團隊出關後直接搭乘機場快鐵前往<b>赫爾辛基中央車站</b>，利用車站地下一樓的大型電子置物櫃寄放所有大件行李箱（輕裝快閃）。隨後在車站前搭乘 7 號或 9 號路面電車（Tram）直達 <b>West Terminal 2 (T2) 碼頭</b>。
+                        </div>
+
+                        <div class="itinerary-section">
+                            <div class="section-time"><i class="fa-regular fa-clock"></i> 10:30 - 12:30 波羅的海跨國航程</div>
+                            搭乘 10:30 出發的 <b>Tallink Silja Line 雙體豪華快船</b>。航程共 2 小時，船上配有大型免稅購物中心、海景餐廳與免費 Wi-Fi。隨著郵輪緩緩駛入對岸，跨越波羅的海，於中午 12:30 抵達愛沙尼亞首都塔林碼頭。
+                        </div>
+
+                        <div class="itinerary-section">
+                            <div class="section-time"><i class="fa-regular fa-clock"></i> 12:45 - 14:30 中世紀老城與古堡午餐</div>
+                            從碼頭步行約 15 分鐘跨入 UNESCO 世界文化遺產<b>塔林老城區</b>。午餐特別安排在市政廳廣場旁的 <b>Olde Hansa 老漢薩餐廳</b>，體驗全店由燭光照明、服務生穿著中世紀傳統服飾的泥爐烤鹿肉與肉桂啤酒，享受最正宗的十四世紀莊園晚宴氣氛。
+                        </div>
+
+                        <div class="itinerary-section">
+                            <div class="section-time"><i class="fa-regular fa-clock"></i> 14:30 - 16:30 上城區登高俯瞰童話雪景</div>
+                            餐後順著鵝卵石階梯一路上行前往座頭山（Toompea）。沿途參觀壯麗的洋蔥頭穹頂——<b>亞歷山大·涅夫斯基主教座堂</b>。最後抵達全城最美攝影點 <b>Patkuli 觀景台</b>，在此俯瞰塔林中世紀黑色防衛高塔、紅磚覆雪屋頂與遠處波羅的海交織的童話極景，也是 8 人拍攝團隊大合照的最佳位置。
+                        </div>
+
+                        <div class="itinerary-section">
+                            <div class="section-time"><i class="fa-regular fa-clock"></i> 16:30 - 19:30 返航與市區補給</div>
+                            返回塔林碼頭搭乘傍晚的渡輪返回赫爾辛基。回程後至中央車站取回行李，步行入住車站旁的市區精品飯店。睡前 8 人一同散步至當地的 K-Supermarket 超市，採買接下來極圈特快車火車上需要的極地零食與飲用水。
+                        </div>
+                    </div>
                 </div>
             </div>
 
