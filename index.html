@@ -11,129 +11,100 @@
             --secondary: #0284c7;
             --accent: #0d9488;
             --bg-light: #f8fafc;
-            --text-dark: #334155;
-            --text-muted: #64748b;
+            --text-dark: #1e293b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
         
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://wikimedia.org') center/cover no-repeat; height: 20vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
-        .hero p { font-size: 0.95rem; opacity: 0.85; margin-top: 5px; }
+        .hero { background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://wikimedia.org') center/cover no-repeat; height: 18vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: 1.8rem; font-weight: 700; }
 
         .travel-layout { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: flex; gap: 25px; }
         
         .tab-menu { width: 28%; display: flex; flex-direction: column; gap: 8px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); height: fit-content; }
-        .tab-btn { background: none; border: none; padding: 12px 15px; text-align: left; font-size: 0.95rem; font-weight: bold; color: var(--text-dark); border-radius: 8px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px; border-left: 4px solid transparent; }
-        .tab-btn:hover { background-color: #f1f5f9; color: var(--secondary); }
+        .tab-btn { background: none; border: none; padding: 12px 15px; text-align: left; font-size: 1rem; font-weight: bold; color: var(--text-dark); border-radius: 8px; cursor: pointer; border-left: 4px solid transparent; }
         .tab-btn.active { background-color: #e0f2fe; color: var(--secondary); border-left-color: var(--secondary); }
         
         .tab-content-container { width: 72%; }
-        .tab-content { display: none; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); animation: fadeIn 0.3s ease; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content { display: block; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         
-        /* 右側滿版大圖 */
-        .content-img { width: 100%; height: 420px; overflow: hidden; background-color: #e2e8f0; }
-        .content-img img { width: 100%; height: 100%; object-fit: cover; }
+        /* 圖片區框架調整 */
+        .content-img { width: 100%; height: 400px; background-color: #cbd5e1; position: relative; }
+        .content-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
         .content-body { padding: 35px; }
-        .content-days { font-size: 0.9rem; font-weight: 800; color: var(--secondary); letter-spacing: 1px; margin-bottom: 5px; }
-        .content-title { font-size: 1.5rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
-        
         .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
-        .tag { padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+        .tag { padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
         .tag-trans { background-color: #f0f9ff; color: #0284c7; }
         .tag-stay { background-color: #f0fdf4; color: #16a34a; }
         
-        /* 放大後的詳細行程排版與大字體 */
-        .itinerary-section { margin-top: 20px; padding-top: 20px; border-top: 1px dashed #cbd5e1; }
-        .section-time { font-weight: bold; color: var(--accent); margin-bottom: 8px; font-size: 1.1rem; }
-        .content-desc { font-size: 1.15rem; color: var(--text-dark); text-align: justify; line-height: 1.9; }
-        .content-desc b { color: var(--primary); font-weight: 700; }
-
-        @media (max-width: 768px) {
-            .travel-layout { flex-direction: column; }
-            .tab-menu { width: 100%; flex-direction: row; overflow-x: auto; padding: 10px; }
-            .tab-btn { white-space: nowrap; padding: 10px 18px; border-left: none; border-bottom: 3px solid transparent; }
-            .tab-btn.active { border-bottom-color: var(--secondary); background-color: transparent; }
-            .tab-content-container { width: 100%; }
-            .content-img { height: 240px; }
-        }
+        /* 行程區強迫分段 */
+        .itinerary-section { margin-top: 25px; padding-top: 25px; border-top: 2px dashed #e2e8f0; }
     </style>
 </head>
 <body>
 
     <div class="hero">
         <h1>北極光之約</h1>
-        <p>芬蘭、挪威 14 天跨國夢幻極光與海島探索之旅</p>
+        <p style="font-size: 1rem; margin-top: 5px;">芬蘭、挪威 14 天跨國夢幻之旅</p>
     </div>
 
     <div class="travel-layout">
-        <!-- 左側切換選單 -->
+        <!-- 左側選單 -->
         <div class="tab-menu">
-            <button class="tab-btn active" onclick="switchTab(event, 'day1')"><i class="fa-solid fa-calendar-day"></i> DAY 01</button>
+            <button class="tab-btn active"><i class="fa-solid fa-calendar-day"></i> DAY 01</button>
         </div>
 
-        <!-- 右側內容顯示區 -->
+        <!-- 右側顯示區 -->
         <div class="tab-content-container">
-            
-            <!-- Day 1 旅行社級詳細規格 -->
-            <div id="day1" class="tab-content active">
+            <div id="day1" class="tab-content">
                 <div class="content-img">
-                    <!-- 使用極其穩定的維基百科公用圖庫直連，GitHub Pages 專用保證絕不破圖 -->
-                    <img src="https://wikimedia.org" alt="Tallinn Medieval Town">
+                    <!-- 改用維基百科最高權限公用 PNG 格式原始大圖連結 -->
+                    <img src="https://wikimedia.org" alt="Tallinn Snow View">
                 </div>
+                
                 <div class="content-body">
-                    <div class="content-days">DAY 01</div>
-                    <div class="content-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
-                    <div class="meta-tags">
+                    <p style="font-size: 0.95rem; font-weight: 800; color: #0284c7; letter-spacing: 1px;">DAY 01</p>
+                    <h2 style="font-size: 1.6rem; color: #0f172a; font-weight: 700; margin-top: 5px;">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</h2>
+                    
+                    <div class="meta-tags" style="margin-top: 15px;">
                         <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船（2小時）</span>
                         <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
                     </div>
                     
-                    <div class="content-desc">
-                        <div class="itinerary-section">
-                            <div class="section-time"><i class="fa-regular fa-clock"></i> 08:30 - 10:00 行李寄放與碼頭接駁</div>
-                            班機早晨順利抵達芬蘭赫爾辛基。8人團隊出關後直接搭乘機場快鐵前往<b>赫爾辛基中央車站</b>，利用車站地下一樓的大型電子置物櫃寄放所有大件行李箱（輕裝快閃）。隨後在車站前搭乘 7 號或 9 號路面電車（Tram）直達 <b>West Terminal 2 (T2) 碼頭</b>。
+                    <!-- 內文處使用 style 強制指定超清晰大字體 -->
+                    <div style="font-size: 1.2rem; line-height: 1.9; color: #1e293b; text-align: justify;">
+                        
+                        <div class="itinerary-section" style="border-top: none; margin-top: 10px; padding-top: 0;">
+                            <p style="font-weight: bold; color: #0d9488; font-size: 1.2rem; margin-bottom: 5px;"><i class="fa-regular fa-clock"></i> 08:30 - 10:00 行李寄放與碼頭接駁</p>
+                            班機早晨順利抵達芬蘭赫爾辛基。8人團隊出關後直接搭乘機場快鐵前往<b>赫爾辛基中央車站</b>，利用車站地下一樓的大型電子置物櫃寄放所有大件行李箱（輕裝快閃）。隨後在車站前搭乘 7 號或 9 號路面電車直達 <b>West Terminal 2 (T2) 碼頭</b>。
                         </div>
 
                         <div class="itinerary-section">
-                            <div class="section-time"><i class="fa-regular fa-clock"></i> 10:30 - 12:30 波羅的海跨國航程</div>
+                            <p style="font-weight: bold; color: #0d9488; font-size: 1.2rem; margin-bottom: 5px;"><i class="fa-regular fa-clock"></i> 10:30 - 12:30 波羅的海跨國航程</p>
                             搭乘 10:30 出發的 <b>Tallink Silja Line 雙體豪華快船</b>。航程共 2 小時，船上配有大型免稅購物中心、海景餐廳與免費 Wi-Fi。隨著郵輪緩緩駛入對岸，跨越波羅的海，於中午 12:30 抵達愛沙尼亞首都塔林碼頭。
                         </div>
 
                         <div class="itinerary-section">
-                            <div class="section-time"><i class="fa-regular fa-clock"></i> 12:45 - 14:30 中世紀老城與古堡午餐</div>
+                            <p style="font-weight: bold; color: #0d9488; font-size: 1.2rem; margin-bottom: 5px;"><i class="fa-regular fa-clock"></i> 12:45 - 14:30 中世紀老城與古堡午餐</p>
                             從碼頭步行約 15 分鐘跨入 UNESCO 世界文化遺產<b>塔林老城區</b>。午餐特別安排在市政廳廣場旁的 <b>Olde Hansa 老漢薩餐廳</b>，體驗全店由燭光照明、服務生穿著中世紀傳統服飾的泥爐烤鹿肉與肉桂啤酒，享受最正宗的十四世紀莊園晚宴氣氛。
                         </div>
 
                         <div class="itinerary-section">
-                            <div class="section-time"><i class="fa-regular fa-clock"></i> 14:30 - 16:30 上城區登高俯瞰童話雪景</div>
-                            餐後順著鵝卵石階梯一路上行前往座頭山（Toompea）。沿途參觀壯麗的洋蔥頭穹頂——<b>亞歷山大·涅夫斯基主教座堂</b>。最後抵達全城最美攝影點 <b>Patkuli 觀景台</b>，在此俯瞰塔林中世紀黑色防衛高塔、紅磚屋頂與遠處波羅的海交織的童話極景，也是 8 人拍攝團隊大合照的最佳位置。
+                            <p style="font-weight: bold; color: #0d9488; font-size: 1.2rem; margin-bottom: 5px;"><i class="fa-regular fa-clock"></i> 14:30 - 16:30 上城區登高俯瞰童話雪景</p>
+                            餐後順著鵝卵石階梯一路上行前往座頭山（Toompea）。沿途參觀壯麗的洋蔥頭穹頂——<b>亞歷山大·涅夫斯基主教座堂</b>。最後抵達全城最美攝影點 <b>Patkuli 觀景台</b>，在此俯瞰塔林中世紀黑色防衛高塔、紅磚覆雪屋頂與遠處波羅的海交織的童話極景，也是 8 人拍攝團隊大合照的最佳位置。
                         </div>
 
                         <div class="itinerary-section">
-                            <div class="section-time"><i class="fa-regular fa-clock"></i> 16:30 - 19:30 返航與市區補給</div>
+                            <p style="font-weight: bold; color: #0d9488; font-size: 1.2rem; margin-bottom: 5px;"><i class="fa-regular fa-clock"></i> 16:30 - 19:30 返航與市區補給</p>
                             返回塔林碼頭搭乘傍晚的渡輪返回赫爾辛基。回程後至中央車站取回行李，步行入住車站旁的市區精品飯店。睡前 8 人一同散步至當地的 K-Supermarket 超市，採買接下來極圈特快車火車上需要的極地零食與飲用水。
                         </div>
+                        
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <script>
-        function switchTab(event, dayId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(dayId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
 </body>
 </html>
