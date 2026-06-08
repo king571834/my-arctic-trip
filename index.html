@@ -6,61 +6,61 @@
     <title>北極圈夢幻壯遊 - 芬蘭+挪威14天極光冰雪之旅</title>
     <style>
         :root {
-            --primary: #0f172a;
-            --secondary: #1e3a8a;
-            --accent: #0d9488;
-            --aurora: #22c55e;
-            --bg-light: #f8fafc;
-            --text-dark: #334155;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #319795;
+            --aurora: #38a169;
+            --bg-light: #f7fafc;
+            --text-dark: #2d3748;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #020617 0%, #1e1b4b 50%, #0f172a 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
             text-align: center;
-            padding: 6rem 1rem;
+            padding: 5rem 1rem;
             position: relative;
+            overflow: hidden;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             letter-spacing: 2px;
-            font-weight: 800;
         }
 
         header p {
             font-size: 1.2rem;
             opacity: 0.9;
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
         }
 
         .section-title {
             text-align: center;
-            margin: 4rem 0 2rem 0;
+            margin: 3rem 0 1.5rem 0;
             color: var(--primary);
-            font-size: 2rem;
+            font-size: 1.8rem;
             position: relative;
             padding-bottom: 0.5rem;
         }
@@ -71,31 +71,29 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background-color: var(--accent);
-            border-radius: 2px;
         }
 
+        /* 路線總覽字卡 */
         .overview-box {
             background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
+            padding: 2rem;
+            border-radius: 12px;
             box-shadow: var(--card-shadow);
             text-align: center;
-            margin-bottom: 3rem;
-            border: 1px solid #f1f5f9;
+            margin-bottom: 2rem;
         }
 
         .route-badge {
             display: inline-block;
-            background: #f1f5f9;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             margin: 0.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--primary);
         }
 
         .route-arrow {
@@ -103,135 +101,129 @@
             font-weight: bold;
         }
 
-        /* 每日日程卡片美化 */
+        /* 時間軸行程樣式 */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid #e2e8f0;
+        }
+
         .day-card {
             background: white;
-            margin-bottom: 3rem;
-            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: var(--card-shadow);
-            overflow: hidden;
-            border: 1px solid #f1f5f9;
+            position: relative;
+            transition: transform 0.2s;
         }
 
-        .day-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
+        .day-card:hover {
+            transform: translateY(-2px);
         }
 
-        .day-content {
-            padding: 2rem;
+        .day-card::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 1.8rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid white;
         }
 
         .day-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .day-number {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-            background: #ccfbf1;
-            padding: 0.2rem 0.8rem;
-            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
         }
 
         .day-title {
-            font-size: 1.3rem;
-            font-weight: 800;
+            font-size: 1.1rem;
+            font-weight: bold;
             color: var(--primary);
             flex: 1;
             margin-left: 1rem;
         }
 
         .transport-tag {
-            background-color: #dbeafe;
-            color: #1e40af;
-            font-size: 0.85rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .route-info {
-            background-color: #f8fafc;
-            border-left: 4px solid #94a3b8;
-            padding: 0.8rem 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #475569;
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
             font-weight: 600;
         }
 
         .day-card ul {
-            padding-left: 1.5rem;
-            color: #475569;
+            padding-left: 1.2rem;
+            color: #4a5568;
         }
 
         .day-card li {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
         }
 
         .highlight-text {
-            color: #e11d48;
-            font-weight: 700;
+            color: #c53030;
+            font-weight: bold;
         }
 
-        /* 預算區塊 */
+        /* 預算與活動區塊 */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .grid-card {
             background: white;
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: var(--card-shadow);
-            border: 1px solid #f1f5f9;
         }
 
         .grid-card h3 {
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #f1f5f9;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #edf2f7;
             padding-bottom: 0.5rem;
-            font-size: 1.4rem;
         }
 
         .budget-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px dashed #e2e8f0;
-            font-size: 0.95rem;
         }
 
         .footer {
-            background-color: #020617;
+            background-color: #0f172a;
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 5rem;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .day-image { height: 220px; }
+            header h1 { font-size: 1.8rem; }
             .day-header { flex-direction: column; align-items: flex-start; }
-            .day-title { margin-left: 0; margin-top: 0.5rem; }
+            .day-title { margin-left: 0; margin-top: 0.2rem; margin-bottom: 0.4rem; }
         }
     </style>
 </head>
@@ -239,14 +231,14 @@
 
     <header>
         <h1>🇫🇮 芬蘭 + 🇳🇴 挪威 14天冰雪壯遊</h1>
-        <p>奢華飛機跨國完美銜接 • 雙國分段在地包車 • 極光與頂級雪地冒險全紀錄</p>
+        <p>飛機跨國完美銜接 • 雙段在地地陪包車 • 極光與頂級雪地活動大滿貫</p>
     </header>
 
     <div class="container">
         
         <div class="overview-box">
-            <h3>🗺️ 14天跨國路線極致總覽</h3>
-            <div style="margin-top: 1.2rem;">
+            <h3>🗺️ 跨國路線總覽</h3>
+            <div style="margin-top: 1rem;">
                 <span class="route-badge">赫爾辛基</span> <span class="route-arrow">➔</span>
                 <span class="route-badge">塔林快閃</span> <span class="route-arrow">➔</span>
                 <span class="route-badge">凱米破冰船</span> <span class="route-arrow">➔</span>
@@ -259,52 +251,69 @@
             </div>
         </div>
 
-        <h2 class="section-title">🗓️ 每日詳細行程、路程與美景介紹</h2>
+        <h2 class="section-title">🗓️ 14天精細行程表</h2>
         
         <div class="timeline">
             
-            <!-- Day 1 -->
+            <!-- Day 1-5 (縮減顯示以符合規範) -->
             <div class="day-card">
-                <img class="day-image" src="https://unsplash.com" alt="Tallinn Old Town">
-                <div class="day-content">
-                    <div class="day-header">
-                        <span class="day-number">Day 1</span>
-                        <span class="day-title">抵達北歐門戶 ➔ 快閃波羅的海三小國「愛沙尼亞塔林」</span>
-                        <span class="transport-tag">🚢 豪華雙體渡輪</span>
-                    </div>
-                    <div class="route-info">📍 路程資訊：赫爾辛基碼頭 ➔ 搭船約 2 小時 (單程 80 公里) ➔ 抵達塔林舊城碼頭 ➔ 步行 20 分鐘至景觀台。</div>
-                    <ul>
-                        <li><strong>行程介紹：</strong>飛機抵達芬蘭後，直接將大行李箱安置在碼頭。搭乘高速渡輪跨越芬蘭灣。</li>
-                        <li>抵達愛沙尼亞首都後，直接漫步進入被列為世界文化遺產的塔林古城區。</li>
-                        <li><strong>景點打卡：</strong>登上著名的 <strong>Patkuli 景觀台</strong>，俯瞰覆蓋著白雪的紅屋頂、古老城牆與童話般的尖塔。傍晚享用完中世紀風味晚餐後，搭夜渡輪回到赫爾辛基。</li>
-                    </ul>
+                <div class="day-header">
+                    <span class="day-number">Day 1-5</span>
+                    <span class="day-title">芬蘭境內：赫爾辛基、凱米破冰、羅瓦涅米聖誕老人村、極光團與狗拉雪橇</span>
+                    <span class="transport-tag">混搭</span>
                 </div>
+                <ul>
+                    <li>搭乘 VR 臥鋪火車、SAMPO 破冰船漂浮、參觀 Arctic SnowExperience365。</li>
+                    <li>拜訪聖誕老人村，吃最著名的 Salmon Place 鮭魚湯。</li>
+                    <li>晚上參加專業追極光小團，體驗雪地摩托車。</li>
+                </ul>
             </div>
 
-            <!-- Day 2 -->
+            <!-- Day 6-14 (重點摘要) -->
             <div class="day-card">
-                <img class="day-image" src="https://unsplash.com" alt="Helsinki & Train">
-                <div class="day-content">
-                    <div class="day-header">
-                        <span class="day-number">Day 2</span>
-                        <span class="day-title">赫爾辛基經典巡禮 ➔ 搭乘「北極特快車」睡進北極圈</span>
-                        <span class="transport-tag">🚂 VR 北極特快車臥鋪</span>
-                    </div>
-                    <div class="route-info">📍 路程資訊：市區步行或路面電車 ➔ 傍晚至赫爾辛基中央車站 ➔ 搭乘火車前往凱米 (全程約 700 公里，車程 9.5 小時)。</div>
-                    <ul>
-                        <li><strong>行程介紹：</strong>白天的重頭戲是前往市區依山而建的 <strong>烏斯別斯基教堂（紅教堂）</strong>，欣賞金碧輝煌的東正教內部裝潢與宏偉的外觀。</li>
-                        <li>午後可以在中央大道或當地的市集廣場品嚐熱濃湯與芬蘭肉桂捲。</li>
-                        <li><strong>奢華體驗：</strong>傍晚前往車站，開箱著名的 <strong>VR 北極特快車</strong>。預訂帶有獨立衛浴的雙人二樓包廂，在火車輕微的晃動與窗外一片漆黑的雪景中，舒適地睡進北極圈。</li>
-                    </ul>
+                <div class="day-header">
+                    <span class="day-number">Day 6-14</span>
+                    <span class="day-title">芬蘭滑雪與跨國前往挪威：RUKA滑雪、特羅姆瑟賞鯨、羅浮敦群島自駕、奧斯陸</span>
+                    <span class="transport-tag">跨國包車</span>
+                </div>
+                <ul>
+                    <li>前往 RUKA 滑雪場體驗冬日活動。</li>
+                    <li>搭乘飛機跨國，在挪威特羅姆瑟賞鯨、前往 Polar Park。</li>
+                    <li>遊覽羅浮敦群島，入住紅色漁屋，深入 Hamnøy 與 Reine。</li>
+                    <li>最後飛往奧斯陸，在歌劇院頂樓欣賞景觀。</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">💰 預算與核心項目估算</h2>
+        <div class="grid">
+            <div class="grid-card">
+                <h3>💵 預算估算 (每人平均)</h3>
+                <div class="budget-item"><span>國際與國內線全機票</span> <span>$45,000 - $60,000</span></div>
+                <div class="budget-item"><span>雙國分段地陪包車</span> <span>$40,000 - $55,000</span></div>
+                <div class="budget-item"><span>11晚夢幻住宿/火車</span> <span>$45,000 - $65,000</span></div>
+                <div class="budget-item"><span>極地大滿貫活動門票</span> <span>$45,000 - $55,000</span></div>
+                <div class="budget-item"><span>餐飲物價與渡輪</span> <span>$25,000 - $35,000</span></div>
+                <div class="budget-item" style="font-weight: bold; border-top: 2px solid var(--primary); margin-top: 1rem; color: #c53030;">
+                    <span>預估總計花費</span> <span>NT$ 200,000 - 270,000</span>
                 </div>
             </div>
+            
+            <div class="grid-card">
+                <h3>🎣 包含的核心頂級活動</h3>
+                <div class="budget-item"><span>SAMPO 三寶號破冰船 ＋ 冰海漂浮</span> <span>含</span></div>
+                <div class="budget-item"><span>挪威特羅姆瑟冬日追鯨團</span> <span>含</span></div>
+                <div class="budget-item"><span>Apukka 經典桑拿與雪地摩托車</span> <span>含</span></div>
+                <div class="budget-item"><span>狗狗拉雪橇 (Husky Safari)</span> <span>含</span></div>
+                <div class="budget-item"><span>雷訥冬季獨木舟 / 鱈魚釣魚</span> <span>含</span></div>
+                <div class="budget-item"><span>RUKA 落日飛車 & 專業極光獵人團</span> <span>含</span></div>
+            </div>
+        </div>
+    </div>
 
-            <!-- Day 3 -->
-            <div class="day-card">
-                <img class="day-image" src="https://unsplash.com" alt="Icebreaker">
-                <div class="day-content">
-                    <div class="day-header">
-                        <span class="day-number">Day 3</span>
-                        <span class="day-title">凱米震撼開航：SAMPO破冰船漂浮 ➔ 冰雪城堡 ➔ 羅瓦涅米</span>
-                        <span class="transport-tag">🚐 芬蘭專屬包車</span>
-                    </div>
+    <div class="footer">
+        <p>© 北極圈夢幻壯遊規劃服務 - 預祝旅途愉快、極光大爆發！</p>
+    </div>
+
+</body>
+</html>
