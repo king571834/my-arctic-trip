@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北極圈夢幻壯遊 - 芬蘭+挪威14天極光冰雪之旅</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #319795;
+            --aurora: #38a169;
+            --bg-light: #f7fafc;
+            --text-dark: #2d3748;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 1.5rem 0;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* 路線總覽字卡 */
+        .overview-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .route-badge {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .route-arrow {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* 時間軸行程樣式 */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .day-card {
+            background: white;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 1.8rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid white;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .day-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .day-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary);
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .transport-tag {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .day-card ul {
+            padding-left: 1.2rem;
+            color: #4a5568;
+        }
+
+        .day-card li {
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-text {
+            color: #c53030;
+            font-weight: bold;
+        }
+
+        /* 預算與活動區塊 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .grid-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .grid-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 0.5rem;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .day-header { flex-direction: column; align-items: flex-start; }
+            .day-title { margin-left: 0; margin-top: 0.2rem; margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇫🇮 芬蘭 + 🇳🇴 挪威 14天冰雪壯遊</h1>
+        <p>飛機跨國完美銜接 • 雙段在地地陪包車 • 極光與頂級雪地活動大滿貫</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="overview-box">
+            <h3>🗺️ 跨國路線總覽</h3>
+            <div style="margin-top: 1rem;">
+                <span class="route-badge">赫爾辛基</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">塔林快閃</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">凱米破冰船</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">羅瓦涅米</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">RUKA滑雪場</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">✈️ 飛航跨國</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">特羅姆瑟</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">羅浮敦群島</span> <span class="route-arrow">➔</span>
+                <span class="route-badge">奧斯陸</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">🗓️ 14天精細行程表</h2>
+        
+        <div class="timeline">
+            
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-number">Day 1</span>
+                    <span class="day-title">抵達赫爾辛基 ➔ 跨國快閃愛沙尼亞塔林</span>
+                    <span class="transport-tag">🚢 雙體渡輪</span>
+                </div>
+                <ul>
+                    <li>抵達芬蘭赫爾辛基，將大件行李寄存在車站/碼頭。</li>
+                    <li>搭乘 Tallink Silja 渡輪快閃愛沙尼亞舊城區。</li>
+                    <li>直奔 <strong>Patkuli 景觀台</strong> 俯瞰夢幻般的中世紀童話雪景，當晚返回赫爾辛基入住。</li>
+                </ul>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-number">Day 2</span>
+                    <span class="day-title">赫爾辛基市區巡禮 ➔ 北極特快車臥鋪火車</span>
+                    <span class="transport-tag">🚂 VR 臥鋪火車</span>
+                </div>
+                <ul>
+                    <li>參觀市區宏偉的 <strong>烏斯別斯基教堂（紅教堂）</strong>。</li>
+                    <li>午後在市區漫步、享用北歐風午餐。</li>
+                    <li>傍晚前往中央車站，搭乘 <strong>VR 北極特快車雙人套房臥鋪</strong> 開往凱米。</li>
+                </ul>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-number">Day 3</span>
+                    <span class="day-title">凱米（SAMPO破冰船＋冰雪城堡） ➔ 羅瓦涅米</span>
+                    <span class="transport-tag">🚐 芬蘭段包車啟動</span>
+                </div>
+                <ul>
+                    <li>清晨抵達凱米，專屬地陪司機接車。</li>
+                    <li>參加震撼的 <strong>SAMPO 三寶號破冰船</strong> 之旅，穿上特製防寒衣體驗「冰海漂浮」。</li>
+                    <li>順道參觀 <strong>凱米寶石館</strong> 與 <strong>冰雪城堡 SnowExperience365</strong>，傍晚專車送往羅瓦涅米。</li>
+                </ul>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-number">Day 4</span>
+                    <span class="day-title">羅瓦涅米（聖誕老人村、朝聖鮭魚湯） ➔ 專業追極光小團</span>
+                    <span class="transport-tag">🚐 包車接送</span>
+                </div>
+                <ul>
+                    <li>整天暢玩 <strong>聖誕老人村</strong>，跨越北極圈線並與聖誕老人合影、寄明信片。</li>
+                    <li><span class="highlight-text">午餐必吃：</span> 村內最著名的 <strong>Santa's Salmon Place</strong> 現烤道地三文魚湯與烤鮭魚。</li>
+                    <li>晚上參加 <strong>@Lorenzmira_lapland</strong> 專業攝影硬核追極光小團。</li>
+                </ul>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <span class="day-number">Day 5</span>
+                    <span class="day-title">Apukka 玻璃桑拿體驗 ➔ 雪地摩托與狗狗拉雪橇</span>
+                    <span class="transport-tag">🚐 包車接送</span>
+                </div>
+                <ul>
+                    <li>上午展開熱血的 <strong>雪地摩托車</strong> 與 <strong>狗狗拉雪橇 (Husky Safari)</strong> 奔馳之旅。</li>
