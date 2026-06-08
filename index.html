@@ -4,66 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>北極光之約 - 14天芬蘭挪威跨國夢幻之旅</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cloudflare.com" rel="stylesheet">
     <style>
-        :root { --primary: #1a365d; --secondary: #2b6cb0; --accent: #319795; --bg-light: #f7fafc; --text-dark: #2d3748; }
+        :root {
+            --primary: #0f172a;
+            --secondary: #0284c7;
+            --accent: #0d9488;
+            --bg-light: #f8fafc;
+            --text-dark: #334155;
+            --text-muted: #64748b;
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') center/cover no-repeat fixed; height: 35vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .container { max-width: 1000px; margin: -30px auto 50px; padding: 0 20px; }
-        .overview { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .info-item { display: flex; align-items: center; gap: 12px; }
-        .info-item i { font-size: 1.6rem; color: var(--secondary); }
-        .day-card { background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; overflow: hidden; display: flex; }
-        .day-img { width: 35%; min-width: 240px; }
+        .hero { background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://unsplash.com') center/cover no-repeat fixed; height: 35vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 1000px; margin: -30px auto 60px; padding: 0 20px; }
+        .overview { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 35px; border-bottom: 4px solid var(--secondary); }
+        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .info-item { display: flex; align-items: center; gap: 15px; }
+        .info-item i { font-size: 1.8rem; color: var(--secondary); }
+        .info-item div p:first-child { font-size: 0.8rem; color: var(--text-muted); font-weight: bold; }
+        .info-item div p:last-child { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+        .day-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 30px; overflow: hidden; display: flex; transition: transform 0.3s ease; border-left: 5px solid var(--secondary); }
+        .day-card:nth-child(even) { border-left-color: var(--accent); }
+        .day-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .day-img { width: 35%; min-width: 260px; position: relative; }
         .day-img img { width: 100%; height: 100%; object-fit: cover; }
-        .day-content { width: 65%; padding: 25px; display: flex; flex-direction: column; justify-content: center; }
-        .day-num { font-size: 0.85rem; font-weight: bold; color: var(--accent); margin-bottom: 5px; }
-        .day-title { color: var(--primary); font-size: 1.3rem; margin-bottom: 12px; font-weight: bold; }
-        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-        .tag { padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; }
-        .tag-trans { background-color: #ebf8ff; color: #2b6cb0; }
-        .tag-stay { background-color: #f0fff4; color: #38a169; }
-        .tag-spot { background-color: #feebc8; color: #dd6b20; }
-        .day-desc { color: var(--text-dark); font-size: 0.95rem; text-align: justify; }
-        footer { background: var(--primary); color: white; text-align: center; padding: 25px; font-size: 0.85rem; }
-        @media (max-width: 768px) { .day-card { flex-direction: column; } .day-img { width: 100%; height: 200px; } .day-content { width: 100%; } }
+        .day-content { width: 65%; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .day-num { font-size: 0.9rem; font-weight: 800; color: var(--secondary); margin-bottom: 6px; letter-spacing: 1px; }
+        .day-card:nth-child(even) .day-num { color: var(--accent); }
+        .day-title { color: var(--primary); font-size: 1.35rem; margin-bottom: 15px; font-weight: 700; }
+        .meta-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .tag { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+        .tag-trans { background-color: #f0f9ff; color: #0284c7; }
+        .tag-stay { background-color: #f0fdf4; color: #16a34a; }
+        .tag-spot { background-color: #fff7ed; color: #ea580c; }
+        .day-desc { color: var(--text-dark); font-size: 0.95rem; text-align: justify; line-height: 1.7; }
+        footer { background: var(--primary); color: white; text-align: center; padding: 30px; font-size: 0.9rem; margin-top: 60px; letter-spacing: 0.5px; }
+        @media (max-width: 768px) {
+            .day-card { flex-direction: column; border-left: none; border-top: 5px solid var(--secondary); }
+            .day-card:nth-child(even) { border-top-color: var(--accent); }
+            .day-img { width: 100%; height: 220px; }
+            .day-content { width: 100%; padding: 20px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="hero">
         <h1>北極光之約</h1>
-        <p>芬蘭、挪威 14 天跨國夢幻極光與海島探索之旅 (8人客製優化版)</p>
+        <p>芬蘭、挪威 14 天跨國夢幻極光與海島探索之旅 (8人客製最終優化版)</p>
     </div>
+
     <div class="container">
         <div class="overview">
             <div class="grid-info">
-                <div class="info-item"><i class="fa-solid fa-calendar-days"></i><div><p style="color:#718096;font-size:0.8rem;">旅行天數</p><p><b>14 天 13 夜</b></p></div></div>
-                <div class="info-item"><i class="fa-solid fa-users"></i><div><p style="color:#718096;font-size:0.8rem;">團隊人數</p><p><b>8 位成人</b></p></div></div>
-                <div class="info-item"><i class="fa-solid fa-route"></i><div><p style="color:#718096;font-size:0.8rem;">行程亮點</p><p><b>玻璃屋/自駕/追鯨</b></p></div></div>
-                <div class="info-item"><i class="fa-solid fa-snowflake"></i><div><p style="color:#718096;font-size:0.8rem;">推薦季節</p><p><b>11 月中下旬</b></p></div></div>
+                <div class="info-item"><i class="fa-solid fa-calendar-days"></i><div><p>旅行天數</p><p>14 天 13 夜</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-users"></i><div><p>團隊人數</p><p>8 位成人</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-route"></i><div><p>行程亮點</p><p>頂級玻璃屋 / 追鯨團 / 雙車自駕</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-snowflake"></i><div><p>出發季節</p><p>11 月中下旬 (黃金追鯨季)</p></div></div>
             </div>
         </div>
 
         <!-- Day 1 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Tallinn"></div>
             <div class="day-content">
                 <div class="day-num">DAY 01</div>
                 <div class="day-title">抵達赫爾辛基 ➔ 跨國快閃中世紀塔林古城</div>
                 <div class="meta-tags">
                     <span class="tag tag-trans"><i class="fa-solid fa-ship"></i> Tallink Silja 快船</span>
-                    <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基市區精品飯店</span>
+                    <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> 赫爾辛基精品飯店</span>
                 </div>
-                <p class="day-desc">清晨抵達芬蘭赫爾辛基，托運大件行李後，8人輕裝搭乘豪華雙體快船跨越波羅的海前往愛沙尼亞。漫步於塔林古城中世紀鵝卵石街道，登上 Patkuli 觀景台俯瞰覆雪的紅磚屋頂，傍晚搭船返回赫爾辛基入住。</p>
+                <p class="day-desc">清晨抵達芬蘭赫爾辛基中央車站，寄放行李後直奔碼頭，搭乘豪華雙體快船跨越波羅的海前往愛沙尼亞。漫步於塔林古城中世紀鵝卵石街道，登上 Patkuli 觀景台俯瞰覆雪的紅磚屋頂，傍晚搭船返回赫爾辛基入住精品飯店。</p>
             </div>
         </div>
 
         <!-- Day 2 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Helsinki"></div>
             <div class="day-content">
                 <div class="day-num">DAY 02</div>
                 <div class="day-title">赫爾辛基市區巡禮 ➔ 夜宿 VR 北極特快車卧鋪</div>
@@ -71,13 +91,13 @@
                     <span class="tag tag-spot"><i class="fa-solid fa-church"></i> 紅白教堂巡禮</span>
                     <span class="tag tag-trans"><i class="fa-solid fa-train"></i> VR 北極特快車獨立包廂</span>
                 </div>
-                <p class="day-desc">走訪參議院廣場白教堂與拜占庭風格烏斯別斯基紅教堂。傍晚在市區享用溫暖晚餐後前往中央車站。8人剛好包下4間雙人「獨立衛浴臥鋪包廂」，隨著列車有節奏的擺動，舒適躺睡一路向北挺進北極圈。</p>
+                <p class="day-desc">走訪參議院廣場白教堂與充滿異國拜占庭風格的烏斯別斯基紅教堂。傍晚在市區享用溫暖的芬蘭傳統晚餐後前往車站。8人剛好包下4間雙人「獨立衛浴臥鋪包廂」，隨著列車有節奏的擺動，舒適躺睡一路向北挺進北極圈。</p>
             </div>
         </div>
 
         <!-- Day 3 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Rovaniemi"></div>
             <div class="day-content">
                 <div class="day-num">DAY 03</div>
                 <div class="day-title">羅瓦涅米：聖誕老人村跨越極圈 ➔ 全球最北麥當勞</div>
@@ -85,27 +105,27 @@
                     <span class="tag tag-spot"><i class="fa-solid fa-candy-cane"></i> 聖誕老人村 & 現烤三文魚湯</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-house-chimney"></i> 羅瓦涅米河畔包棟別墅</span>
                 </div>
-                <p class="day-desc">早晨抵達羅瓦涅米。直奔聖誕老人村跨越北極圈線、寄出官方郵戳明信片，中午在村內享用現火炭烤的道地三文魚湯。下午前往最北麥當勞打卡領取專屬明信片，夜晚入住極光別墅民宿，後院直接等極光。</p>
+                <p class="day-desc">早晨抵達拉普蘭門戶羅瓦涅米。直奔聖誕老人村跨越北極圈緯度線、寄出官方郵戳明信片，中午在村內 Santa's Salmon Place 享用現火炭烤的道地三文魚湯。下午前往最北麥當勞打卡領取專屬卡片，夜晚入住極光別墅別墅。</p>
             </div>
         </div>
 
         <!-- Day 4 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Ruka"></div>
             <div class="day-content">
                 <div class="day-num">DAY 04</div>
                 <div class="day-title">羅瓦涅米 ➔ RUKA（粉紅霞光落日軌道飛車）</div>
                 <div class="meta-tags">
-                    <span class="tag tag-trans"><i class="fa-solid fa-bus"></i> 舒適小巴</span>
+                    <span class="tag tag-trans"><i class="fa-solid fa-bus"></i> 舒適接駁小巴</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-hot-tub-person"></i> RUKA 私人桑拿大木屋</span>
                 </div>
-                <p class="day-desc">搭車前往庫薩莫頂級滑雪場 RUKA。體驗熱門的 Ruka Coaster 落日飛車，在北極圈特有的夢幻粉色魔幻時刻晚霞中疾馳。夜晚入住配有正宗芬蘭私人木屋桑拿（Sauna）的別墅，洗去旅途疲勞。</p>
+                <p class="day-desc">搭車前往庫薩莫頂級滑雪勝地 RUKA。體驗風靡社群的 Ruka Coaster 落日軌道飛車，在極圈特有的夢幻粉色魔幻時刻晚霞中破雪疾馳。夜晚入住配有正宗芬蘭私人木屋桑拿（Sauna）的木屋別墅，洗去連日旅途疲勞。</p>
             </div>
         </div>
 
         <!-- Day 5 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Glass Igloo"></div>
             <div class="day-content">
                 <div class="day-num">DAY 05</div>
                 <div class="day-title">RUKA ➔ 薩里山 Northern Light Village 奢華玻璃屋</div>
@@ -113,13 +133,13 @@
                     <span class="tag tag-trans"><i class="fa-solid fa-bus"></i> 拉普蘭縱貫巴士</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-igloo"></i> Northern Light Village 玻璃圓頂屋</span>
                 </div>
-                <p class="day-desc">一路北上抵達薩里山極光名所。今晚8人入住配有雷射加熱玻璃頂棚的半玻璃圓頂屋。11月寒冬裡，大家完全不需在室外挨凍，躺在溫暖的床上，透過透明穹頂就能靜候璀璨的北極光緞帶躍動。</p>
+                <p class="day-desc">一路向北抵達薩里山極光聖地。今晚8人正式入住配有雷射加熱玻璃頂棚的半玻璃圓頂屋。在11月的極寒冬夜裡，大家完全不需在室外挨凍，躺在室內溫暖的床上，透過全透明穹頂就能靜候璀璨的綠色歐若拉極光緞帶躍動。</p>
             </div>
         </div>
 
         <!-- Day 6 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Husky"></div>
             <div class="day-content">
                 <div class="day-num">DAY 06</div>
                 <div class="day-title">薩里山度假村全包日（哈士奇、雪摩托、冰釣體驗）</div>
@@ -127,13 +147,13 @@
                     <span class="tag tag-spot"><i class="fa-solid fa-dog"></i> 雪摩托與哈士奇拉雪橇</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-igloo"></i> Northern Light Village 連續宿</span>
                 </div>
-                <p class="day-desc">今日免除舟車勞頓，活動全在 resort 內展開。早上駕駛雪地摩托車穿梭針葉林，隨後體驗熱情狂飆的哈士奇雪橇。下午前往伊納里湖畔體驗冰釣，並前往相鄰的國家公園進行極地雪鞋徒步。</p>
+                <p class="day-desc">今日免除舟車勞頓，所有極地活動全在度假村基地內展開。早上駕駛雪地摩托車穿梭在寂靜的針葉林間，隨後體驗熱情狂飆的哈士奇狗拉雪橇。下午前往伊納里湖畔體驗傳統冰釣，並前往相鄰的烏爾霍國家公園進行極地雪鞋徒步。</p>
             </div>
         </div>
 
         <!-- Day 7 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Tromso"></div>
             <div class="day-content">
                 <div class="day-num">DAY 07</div>
                 <div class="day-title">芬蘭薩里山 ➔ 挪威特羅姆瑟【保姆車跨國包車】➔ 纜車夜景</div>
@@ -141,13 +161,13 @@
                     <span class="tag tag-trans"><i class="fa-solid fa-van-shuttle"></i> 9-14人座大空間保姆車</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-person-shelter"></i> ÆRA Northern Park 玻璃屋</span>
                 </div>
-                <p class="day-desc">包下大空間保姆車舒適跨國橫跨挪威。傍晚抵達特羅姆瑟後，立刻搭乘 Fjellheisen 纜車登頂，俯瞰「北極圈巴黎」的萬家燈火與大西洋峽灣。夜晚入住郊區完全無視界光害的 ÆRA 玻璃屋別墅。</p>
+                <p class="day-desc">升級包下大空間保姆車，有專屬司機負責跨國長途駕駛，8人可在車內舒適躺睡。傍晚抵達挪威特羅姆瑟後，立刻搭乘 Fjellheisen 纜車登頂，俯瞰「北極圈巴黎」的萬家燈火。夜晚入住郊區完全無視界光害的 ÆRA 玻璃屋別墅。</p>
             </div>
         </div>
 
         <!-- Day 8 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Whale"></div>
             <div class="day-content">
                 <div class="day-num">DAY 08</div>
                 <div class="day-title">特羅姆瑟外海追鯨大爆發 ➔ 開啟自駕奔向賽尼亞島</div>
@@ -156,13 +176,13 @@
                     <span class="tag tag-trans"><i class="fa-solid fa-car"></i> 8人自駕雙車 (必配雪地釘胎)</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-water"></i> Hamn i Senja 海邊峽灣小屋</span>
                 </div>
-                <p class="day-desc">11月中下旬正值挪威追鯨黃金期！搭乘雙體船出海，近距離觀賞前來覓食的野生座頭鯨與殺人鯨。下午市區取車，租用兩輛配備四輪傳動與「雪地釘胎」的安全大車，南下開往地貌震撼的賽尼亞島海邊小屋。</p>
+                <p class="day-desc">11月中下旬正值挪威追鯨黃金期！8人將搭乘現代雙體船出海，近距離觀賞前來覓食的野生座頭鯨與殺人鯨。下午回市區取車，租用兩輛配備四輪傳動與「雪地釘胎」的安全大車，自駕開往地貌震撼的賽尼亞島海邊小屋。</p>
             </div>
         </div>
 
         <!-- Day 9 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Senja"></div>
             <div class="day-content">
                 <div class="day-num">DAY 09</div>
                 <div class="day-title">賽尼亞島景觀公路 ➔ Polar Park ➔ 羅弗敦群島 Svolvær</div>
@@ -170,13 +190,13 @@
                     <span class="tag tag-spot"><i class="fa-solid fa-paw"></i> Polar Park 北極野生動物園</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-house"></i> Svinøya Rorbuer 4臥室傳統大包棟</span>
                 </div>
-                <p class="day-desc">驅車沿賽尼亞島國家景觀公路漫遊，欣賞如惡魔之齒般險峻的巨石峽灣。中途停靠 Polar Park 北極公園探訪北極狼與馴鹿。傍晚跨越海大橋，正式踏入世界最美海島羅弗敦群島，入住寬敞的重修傳統紅漁屋。</p>
+                <p class="day-desc">驅車沿賽尼亞島國家景觀公路漫遊，欣賞如惡魔之齒般險峻的巨石峽灣景緻。中途停靠 Polar Park 北極公園探訪北極狼與馴鹿。傍晚跨越海大橋，正式踏入世界最美海島羅弗敦群島，入住寬敞重修的傳統紅漁屋別墅。</p>
             </div>
         </div>
 
         <!-- Day 10 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Henningsvaer"></div>
             <div class="day-content">
                 <div class="day-num">DAY 10</div>
                 <div class="day-title">羅弗敦群島精華：漢寧斯菲爾與海邊網紅黃房子</div>
@@ -184,27 +204,27 @@
                     <span class="tag tag-spot"><i class="fa-solid fa-camera"></i> 網紅黃房子 / 最美足球場</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-house"></i> Svinøya Rorbuer 連續宿</span>
                 </div>
-                <p class="day-desc">漫遊有威尼斯之稱的藝術小鎮漢寧斯菲爾。打卡海邊礁岩上的網紅黃房子，以及群山環繞的海島足球場。傍晚到超市大採購，8人在漁屋超大長木桌上煮海鮮火鍋、煎當地新鮮鮭魚，享受溫馨的極圈海島冬夜。</p>
+                <p class="day-desc">漫遊有威尼斯之稱的藝術小鎮漢寧斯菲爾。現場打卡突兀矗立在海邊礁岩上的網紅黃房子，以及群山環繞的海島足球場。傍晚到超市大採購，8人在漁屋超大長木桌上煮海鮮火鍋、煎當地新鮮鮭魚，享受溫馨的海島冬夜。</p>
             </div>
         </div>
 
         <!-- Day 11 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Hamnoy"></div>
             <div class="day-content">
                 <div class="day-num">DAY 11</div>
                 <div class="day-title">羅弗敦南部經典：哈姆諾伊明信片 ➔ 雷訥 ➔ Å小鎮</div>
                 <div class="meta-tags">
                     <span class="tag tag-spot"><i class="fa-solid fa-anchor"></i> 冬季峽灣獨木舟 / 船釣體驗</span>
-                    <span class="tag tag-stay"><i class="fa-solid Earth"><i class="fa-solid fa-house-user"></i> Eliassen Rorbuer 地標漁屋</span>
+                    <span class="tag tag-stay"><i class="fa-solid fa-house-user"></i> Eliassen Rorbuer 地標漁屋</span>
                 </div>
-                <p class="day-desc">向南開往哈姆諾伊（Hamnøy）拍攝紅色漁屋群與巨石巨幕交織的經典畫面。在雷訥（Reine）參加刺激安全的冬季獨木舟或極地船釣。最後一路開到公路盡頭的 Å 小鎮，入住地標紅漁屋 Eliassen Rorbuer。</p>
+                <p class="day-desc">向南開往哈姆諾伊（Hamnøy）拍攝紅色漁屋群與黑色巨大山壁交織的明信片經典畫面。在雷訥（Reine）參加刺激安全的冬季獨木舟，或搭乘木船進行極地船釣。最後一路開到公路盡頭的 Å 小鎮，入住地標紅漁屋 Eliassen Rorbuer。</p>
             </div>
         </div>
 
         <!-- Day 12 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Oslo"></div>
             <div class="day-content">
                 <div class="day-num">DAY 12</div>
                 <div class="day-title">羅弗敦群島 ➔ 埃沃內斯機場還車 ✈️ 奧斯陸（歌劇院夜景）</div>
@@ -212,13 +232,13 @@
                     <span class="tag tag-trans"><i class="fa-solid fa-plane"></i> 挪威國內線班機</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> Citybox Oslo (中央車站旁高CP值)</span>
                 </div>
-                <p class="day-desc">清晨驅車前往埃沃內斯機場（EVE）辦理還車，隨後搭乘挪威國內線班機飛往首都奧斯陸。抵達後直奔奧斯陸歌劇院，順著大理石斜坡走到頂樓屋頂，俯瞰奧斯陸峽灣璀璨夜景。今晚入住車站旁設計旅店。</p>
+                <p class="day-desc">清晨驅車前往埃沃內斯機場（EVE）辦理還車手續，隨後搭乘挪威國內線班機飛往首都奧斯陸。抵達後直奔奧斯陸歌劇院，順著白色大理石斜坡走到頂樓屋頂，俯瞰奧斯陸峽灣璀璨夜景。今晚入住車站旁設計旅店。</p>
             </div>
         </div>
 
         <!-- Day 13 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Bergen"></div>
             <div class="day-content">
                 <div class="day-num">DAY 13</div>
                 <div class="day-title">奧斯陸 ➔ 雨港卑爾根（佛洛伊恩山纜車百萬夜景）</div>
@@ -226,26 +246,27 @@
                     <span class="tag tag-trans"><i class="fa-solid fa-train"></i> 世界最美卑爾根景觀鐵路</span>
                     <span class="tag tag-stay"><i class="fa-solid fa-hotel"></i> Zander K Hotel (市區車站旁)</span>
                 </div>
-                <p class="day-desc">搭乘挪威國內線班機或搭乘世界最美景觀鐵路「卑爾根鐵路」橫跨覆雪高原抵達卑爾根。傍晚搭乘 Fløibanen 纜車登頂佛洛伊恩山，將布呂根（Bryggen）彩色木屋與大西洋港灣百萬夜景盡收眼底。</p>
+                <p class="day-desc">搭乘挪威國內線班機或搭乘景觀鐵路「卑爾根鐵路」橫跨覆雪高原抵達卑爾根。傍晚搭乘 Fløibanen 纜車登頂佛洛伊恩山，將世界文化遺產布呂根（Bryggen）彩色木屋與大西洋港灣百萬夜景盡收眼底。</p>
             </div>
         </div>
 
         <!-- Day 14 -->
         <div class="day-card">
-            <div class="day-img"><img src="https://unsplash.com"></div>
+            <div class="day-img"><img src="https://unsplash.com" alt="Departure"></div>
             <div class="day-content">
                 <div class="day-num">DAY 14</div>
                 <div class="day-title">卑爾根 ➔ 經歐洲樞紐轉機 ➔ 返回台灣溫馨的家</div>
                 <div class="meta-tags">
                     <span class="tag tag-trans"><i class="fa-solid fa-plane-departure"></i> 國際線返國航班</span>
                 </div>
-                <p class="day-desc">早晨在布呂根彩色木屋碼頭進行最後的散步與紀念品採買。隨後帶上滿滿的北極光、殺人鯨、雪地哈士奇與挪威大峽灣的震撼照片，前往卑爾根機場（BGO）辦理退稅、行李託運，轉機返回台灣。</p>
+                <p class="day-desc">早晨在布呂根彩色木屋碼頭進行最後的散步與極地紀念品採買。隨後帶上滿滿的北極光、座頭鯨、雪地哈士奇與挪威大峽灣的震撼照片，前往卑爾根機場（BGO）辦理退稅、行李託運，搭機轉機返回台灣。</p>
             </div>
         </div>
 
     </div>
     <footer>
-        <p>&copy; 2026 北極光之約 8人團隊專屬手冊. 行程與圖片內容專屬優化排版.</p>
+        <p>&copy; 2026 北極光之約 14天尊享航程 8人團隊專屬手冊. 行程與圖片內容專屬優化排版.</p>
     </footer>
 </body>
 </html>
+
